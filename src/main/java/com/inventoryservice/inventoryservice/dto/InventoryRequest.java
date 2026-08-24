@@ -11,9 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class InventoryRequest {
-
-    @NotBlank(message = "Product ID is required")
-    private String productId;
+    @NotBlank(message = "Product name is required")
+    private String productName;
 
     @NotNull(message = "Available quantity is required")
     @Min(value = 0, message = "Available quantity cannot be negative")

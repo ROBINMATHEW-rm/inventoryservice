@@ -11,13 +11,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @Document(collection = "inventory")
 public class Inventory {
-
     @Id
     private String id;
-
     private String productId;
-
+    private String productName;
     private Integer availableQuantity;
-
     private Integer reservedQuantity;
 }

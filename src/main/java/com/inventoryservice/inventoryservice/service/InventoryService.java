@@ -1,7 +1,9 @@
 package com.inventoryservice.inventoryservice.service;
 
+import com.inventoryservice.inventoryservice.client.ProductClient;
 import com.inventoryservice.inventoryservice.dto.InventoryRequest;
 import com.inventoryservice.inventoryservice.dto.InventoryResponse;
+import com.inventoryservice.inventoryservice.dto.ProductClientResponse;
 import com.inventoryservice.inventoryservice.entity.Inventory;
 import com.inventoryservice.inventoryservice.repository.InventoryRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,12 +16,17 @@ import java.util.List;
 public class InventoryService {
 
     private final InventoryRepository inventoryRepository;
+    private final ProductClient productClient;
 
     public InventoryResponse createInventory(InventoryRequest request) {
 
+        ProductClientResponse product =
+                productClient.getProductByName(request.getProductName());
+
         Inventory inventory = new Inventory();
 
-        inventory.setProductId(request.getProductId());
+        inventory.setProductId(product.getId());
+        inventory.setProductName(product.getName());
         inventory.setAvailableQuantity(request.getAvailableQuantity());
         inventory.setReservedQuantity(request.getReservedQuantity());
 
@@ -56,6 +63,7 @@ public class InventoryService {
         return new InventoryResponse(
                 inventory.getId(),
                 inventory.getProductId(),
+                inventory.getProductName(),
                 inventory.getAvailableQuantity(),
                 inventory.getReservedQuantity()
         );

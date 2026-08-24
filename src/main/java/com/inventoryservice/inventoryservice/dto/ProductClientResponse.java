@@ -7,11 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class InventoryResponse {
+public class ProductClientResponse {
 
     private String id;
-    private String productId;
-    private String productName;
-    private Integer availableQuantity;
-    private Integer reservedQuantity;
+    private String name;
 }
