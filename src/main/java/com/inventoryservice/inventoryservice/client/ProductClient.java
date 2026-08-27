@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient(
         name = "product-service",
-        url = "${product-service.url}",
         configuration = FeignConfig.class
 )
 public interface ProductClient {
