@@ -61,7 +61,7 @@ ENV JAVA_OPTS=""
 
 # Document that the Spring Boot application listens on port 8080.
 # EXPOSE does not publish the port to the host machine.
-EXPOSE 8081
+EXPOSE 8091
 
 # Configure Docker to periodically check application health.
 # interval: Run the health check every 30 seconds.
