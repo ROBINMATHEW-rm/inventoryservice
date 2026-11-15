@@ -74,7 +74,7 @@ HEALTHCHECK --interval=30s \
     --start-period=60s \
     --retries=3 \
     CMD wget -q -O /dev/null \
-    http://localhost:8080/actuator/health || exit 1
+    http://localhost:8091/actuator/health || exit 1
 
 # Start the Spring Boot application when the container starts.
 # sh -c expands the JAVA_OPTS environment variable.
